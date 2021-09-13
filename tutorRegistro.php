@@ -69,7 +69,7 @@
                 <hr>
                 Correo Electrónico Alternativo <input type="text">
                 Número de teléfono <input type="text">
-                Selecciona tu foto de perfil <input type="text">
+                Selecciona tu foto de perfil <input type="file">
             </form>
         </div>
     </body>
