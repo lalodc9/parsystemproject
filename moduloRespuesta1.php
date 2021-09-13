@@ -23,12 +23,12 @@
                 <img src="img/avatar.png">
                 <p>Nombre</p>
                 <p><?php 
-                    echo "CYNTHIA TERAN CARRANZA\n";
+                    echo "CYNTHIA TERAN CARRANZA <br>\n";
                 ?>
                 <p>Contacto</p>
                 <p><?php 
-                    echo "449 283 4903 / alberto@gmail.com\n";
-                    echo "PLASTILINA I\n";
+                    echo "449 283 4903 / alberto@gmail.com <br>\n";
+                    echo "PLASTILINA I <br>\n";
                     echo "URGENTE";
                 ?>
                 <button>ACEPTAR</button>

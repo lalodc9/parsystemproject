@@ -28,7 +28,7 @@
                 </p>
                 <p>Contacto</p>
                 <p><?php 
-                    echo "449 283 4903 / abel@gmail.com\n";
+                    echo "449 283 4903 / abel@gmail.com <br>\n";
                     echo "ESTRUCTURAS DE DATOS"
                 ?>
                 <button>CANCELAR</button>
@@ -39,7 +39,7 @@
             <div>
                 <img src="img/avatarunknown.png">
                 <p><?php 
-                    echo "ESPERANDO RESPUESTA\n";
+                    echo "ESPERANDO RESPUESTA <br>\n";
                     echo "ÁLGEBRA LINEAL";
                 ?>
                 </p>

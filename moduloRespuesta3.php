@@ -23,7 +23,7 @@
                 <img src="img/avatar.png">
                 <p>Nombre</p>
                 <p><?php 
-                    echo "ABEL SOTO VALDEZ\n";
+                    echo "ABEL SOTO VALDEZ <br>\n";
                     echo "ESTRUCTURAS DE DATOS"
                 ?>
                 </p>
@@ -32,7 +32,7 @@
                 </p>
                 <p> 
                     <?php 
-                        echo "17/09/2021  14:00hrs\n";
+                        echo "17/09/2021  14:00hrs <br>\n";
                         echo "BIBLIOTECA CENTRAL";
                     ?>
                 </p>
