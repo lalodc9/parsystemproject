@@ -8,7 +8,7 @@
     <body>
         <img src="img/logouaa.png" id="logouaa">
         <div>
-            <h1>SISTEMA DE TUTORÍA DE PARES</h1>
+            <h1>REGISTRO DE TUTOR PAR</h1>
         </div>
 
         <img src="img/logogallo.png" id="logogallo">

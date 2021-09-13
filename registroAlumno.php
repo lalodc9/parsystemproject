@@ -3,6 +3,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
     </head>
     <body>
         <div>
@@ -10,7 +11,7 @@
         </div>
         <div>
             <hr>
-            INFORMACI&Oacute;N GENERAL
+            INFORMACIÓN GENERAL
             <hr>
         </div>
         
@@ -19,7 +20,7 @@
             <input type="text" id="name" name="name"><br>
             <label for="id" id="textID">ID</label>
             <input type="text" id="id" name="id" pattern="[0-9]{6}" required><br>
-            <label for="faculty" id="textFaculty">CENTRO ACAD&Eacute;MICO</label>
+            <label for="faculty" id="textFaculty">CENTRO ACADÉMICO</label>
             <input type="text" id="center" name="center"><br>
             <label for="course" id="textCourse">CARRERA</label>
             <input type="text" id="course" name="course"><br>
@@ -27,7 +28,7 @@
             <input type="number" id="semester" name="semester"><br>
             <label for="group" id="textGroup">GRUPO</label>
             <input type="text" id="group" name="group"><br>
-            <label for="phonenumber" id="textTel">TEL&Eacute;FONO</label>
+            <label for="phonenumber" id="textTel">TELÉFONO</label>
             <input type="tel" id="phonenumber" name="phonenumber"><br>
             <label for="altmail" id="textMail">CORREO ALTERNATIVO</label>
             <input type="text" id="altmail" name="altmail"><br>
