@@ -10,12 +10,8 @@
         <div>
             <h1>REGISTRO DE TUTOR PAR</h1>
         </div>
-
         <img src="img/logogallo.png" id="logogallo">
-        
         <div>
-            
-            
             <form>
                 <hr>
                 <h2>INFORMACIÓN GENERAL</h2><br>
@@ -76,8 +72,5 @@
                 Selecciona tu foto de perfil <input type="text">
             </form>
         </div>
-        
-        
-
     </body>
 </html>
