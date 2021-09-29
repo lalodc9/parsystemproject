@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2021 a las 21:50:32
+-- Tiempo de generación: 29-09-2021 a las 22:57:17
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -77,7 +77,8 @@ CREATE TABLE `alumnos_solicitudes` (
 --
 
 INSERT INTO `alumnos_solicitudes` (`alumno_id`, `solicitud_id`, `alumno_encargado`) VALUES
-(226582, 2, 1);
+(226582, 2, 1),
+(226582, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,9 @@ CREATE TABLE `materias` (
 --
 
 INSERT INTO `materias` (`materia_id`, `materia_nombre`, `materia_departamento`, `centro_id`) VALUES
-(1, 'Álgebra Lineal', 'Matemáticas y Física', 1);
+(1, 'Álgebra Lineal', 'Matemáticas y Física', 1),
+(2, 'Estructuras de Datos', 'Sistemas Electrónicos', 1),
+(3, 'Base de Datos', 'Sistemas de la Información', 1);
 
 -- --------------------------------------------------------
 
@@ -183,7 +186,9 @@ CREATE TABLE `materias_carreras` (
 --
 
 INSERT INTO `materias_carreras` (`materia_id`, `carrera_id`, `semestre`) VALUES
-(1, 1, 2);
+(1, 1, 2),
+(2, 1, 3),
+(3, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -196,6 +201,14 @@ CREATE TABLE `materias_tutores` (
   `materia_id` int(11) NOT NULL,
   `promedio_materia` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `materias_tutores`
+--
+
+INSERT INTO `materias_tutores` (`tutor_id`, `materia_id`, `promedio_materia`) VALUES
+(1, 1, 10),
+(1, 3, 10);
 
 -- --------------------------------------------------------
 
@@ -210,7 +223,7 @@ CREATE TABLE `solicitudes` (
   `materia_id` int(11) NOT NULL,
   `solicitud_tema` varchar(200) NOT NULL,
   `solicitud_descripcion` varchar(500) NOT NULL,
-  `tutor_id` int(11) NOT NULL,
+  `tutor_id` int(11) DEFAULT NULL,
   `solicitud_fecha_progrmacion` datetime DEFAULT NULL,
   `solicitud_lugar` varchar(200) DEFAULT NULL,
   `solicitud_modalidad` int(11) DEFAULT NULL,
@@ -222,7 +235,8 @@ CREATE TABLE `solicitudes` (
 --
 
 INSERT INTO `solicitudes` (`solicitud_id`, `solicitud_fecha`, `solicitud_urgencia`, `materia_id`, `solicitud_tema`, `solicitud_descripcion`, `tutor_id`, `solicitud_fecha_progrmacion`, `solicitud_lugar`, `solicitud_modalidad`, `solicitud_idAsesoria`) VALUES
-(2, '2021-09-24 21:24:05', 1, 1, 'CICLOS FOR', 'No entiendo el tema', 1, NULL, NULL, NULL, NULL);
+(2, '2021-09-24 21:24:05', 1, 1, 'CICLOS FOR', 'No entiendo el tema', 1, NULL, NULL, NULL, NULL),
+(3, '2021-09-29 21:42:22', 1, 1, 'Matrices', 'No entiendo', 1, '2021-09-29 21:42:22', 'UAA', 1, '12345');
 
 -- --------------------------------------------------------
 
@@ -324,7 +338,9 @@ ALTER TABLE `materias_tutores`
 -- Indices de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  ADD PRIMARY KEY (`solicitud_id`);
+  ADD PRIMARY KEY (`solicitud_id`),
+  ADD KEY `materia_id` (`materia_id`),
+  ADD KEY `tutor_id` (`tutor_id`);
 
 --
 -- Indices de la tabla `tutores`
@@ -398,6 +414,13 @@ ALTER TABLE `materias_tutores`
   ADD CONSTRAINT `materias_tutores_ibfk_1` FOREIGN KEY (`tutor_id`) REFERENCES `tutores` (`tutor_id`),
   ADD CONSTRAINT `materias_tutores_ibfk_2` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`),
   ADD CONSTRAINT `materias_tutores_ibfk_3` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`);
+
+--
+-- Filtros para la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  ADD CONSTRAINT `solicitudes_ibfk_1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`),
+  ADD CONSTRAINT `solicitudes_ibfk_2` FOREIGN KEY (`tutor_id`) REFERENCES `tutores` (`tutor_id`);
 
 --
 -- Filtros para la tabla `tutores`
