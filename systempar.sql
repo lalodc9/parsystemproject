@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2021 a las 22:57:17
+-- Tiempo de generación: 01-10-2021 a las 02:28:10
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -46,6 +46,7 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`alumno_id`, `alumno_contrasena`, `centro_id`, `carrera_id`, `alumno_nombre`, `alumno_apellidos`, `alumno_semestre`, `alumno_grupo`, `alumno_telefono`, `alumno_correo`, `alumno_imagen`) VALUES
+(226570, '12345', 1, 1, 'José Mauricio', 'López Saucedo', 6, 'A', '4491908687', 'al226570@edu.uaa.mx', ''),
 (226582, '5678', 1, 1, 'Cynthia Maritza', 'Terán Carranza', 2, 'A', '4491808868', 'al226582@edu.uaa.mx', ''),
 (269314, '1234', 1, 1, 'Eduardo', 'Davila Campos', 5, 'A', '4499205022', 'eduardo.davilac9@gmail.com', '');
 
@@ -78,7 +79,8 @@ CREATE TABLE `alumnos_solicitudes` (
 
 INSERT INTO `alumnos_solicitudes` (`alumno_id`, `solicitud_id`, `alumno_encargado`) VALUES
 (226582, 2, 1),
-(226582, 3, 1);
+(226582, 3, 1),
+(226582, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -208,7 +210,8 @@ CREATE TABLE `materias_tutores` (
 
 INSERT INTO `materias_tutores` (`tutor_id`, `materia_id`, `promedio_materia`) VALUES
 (1, 1, 10),
-(1, 3, 10);
+(1, 3, 10),
+(2, 2, 10);
 
 -- --------------------------------------------------------
 
@@ -236,7 +239,8 @@ CREATE TABLE `solicitudes` (
 
 INSERT INTO `solicitudes` (`solicitud_id`, `solicitud_fecha`, `solicitud_urgencia`, `materia_id`, `solicitud_tema`, `solicitud_descripcion`, `tutor_id`, `solicitud_fecha_progrmacion`, `solicitud_lugar`, `solicitud_modalidad`, `solicitud_idAsesoria`) VALUES
 (2, '2021-09-24 21:24:05', 1, 1, 'CICLOS FOR', 'No entiendo el tema', 1, NULL, NULL, NULL, NULL),
-(3, '2021-09-29 21:42:22', 1, 1, 'Matrices', 'No entiendo', 1, '2021-09-29 21:42:22', 'UAA', 1, '12345');
+(3, '2021-09-29 21:42:22', 1, 1, 'Matrices', 'No entiendo', 1, '2021-09-29 21:42:22', 'UAA', 1, '12345'),
+(4, '2021-09-30 21:30:20', 1, 2, 'Árboles', 'Preorden, postorden', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -256,7 +260,8 @@ CREATE TABLE `tutores` (
 --
 
 INSERT INTO `tutores` (`tutor_id`, `alumno_id`, `tutor_promedio`, `tutor_programa`) VALUES
-(1, 269314, 10, 2);
+(1, 269314, 10, 2),
+(2, 226570, 9.5, 2);
 
 --
 -- Índices para tablas volcadas
