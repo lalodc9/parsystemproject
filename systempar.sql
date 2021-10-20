@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-10-2021 a las 02:28:10
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Host: 127.0.0.1
+-- Generation Time: Oct 20, 2021 at 05:05 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `systempar`
+-- Database: `systempar`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos`
+-- Table structure for table `alumnos`
 --
 
 CREATE TABLE `alumnos` (
@@ -42,18 +42,19 @@ CREATE TABLE `alumnos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `alumnos`
+-- Dumping data for table `alumnos`
 --
 
 INSERT INTO `alumnos` (`alumno_id`, `alumno_contrasena`, `centro_id`, `carrera_id`, `alumno_nombre`, `alumno_apellidos`, `alumno_semestre`, `alumno_grupo`, `alumno_telefono`, `alumno_correo`, `alumno_imagen`) VALUES
 (226570, '12345', 1, 1, 'José Mauricio', 'López Saucedo', 6, 'A', '4491908687', 'al226570@edu.uaa.mx', ''),
 (226582, '5678', 1, 1, 'Cynthia Maritza', 'Terán Carranza', 2, 'A', '4491808868', 'al226582@edu.uaa.mx', ''),
-(269314, '1234', 1, 1, 'Eduardo', 'Davila Campos', 5, 'A', '4499205022', 'eduardo.davilac9@gmail.com', '');
+(269314, '1234', 1, 1, 'Eduardo', 'Davila Campos', 5, 'A', '4499205022', 'eduardo.davilac9@gmail.com', ''),
+(269315, '1234', 1, 1, 'Carlos Alberto', 'Sánchez Rodríguez', 2, 'C', '1234567890', 'albertosnchez977@gmail.com', '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos_asesoriasf`
+-- Table structure for table `alumnos_asesoriasf`
 --
 
 CREATE TABLE `alumnos_asesoriasf` (
@@ -64,7 +65,7 @@ CREATE TABLE `alumnos_asesoriasf` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos_solicitudes`
+-- Table structure for table `alumnos_solicitudes`
 --
 
 CREATE TABLE `alumnos_solicitudes` (
@@ -74,18 +75,22 @@ CREATE TABLE `alumnos_solicitudes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `alumnos_solicitudes`
+-- Dumping data for table `alumnos_solicitudes`
 --
 
 INSERT INTO `alumnos_solicitudes` (`alumno_id`, `solicitud_id`, `alumno_encargado`) VALUES
 (226582, 2, 1),
-(226582, 3, 1),
-(226582, 4, 1);
+(226582, 3, 0),
+(226582, 4, 1),
+(269314, 2, 0),
+(269315, 4, 0),
+(269315, 3, 1),
+(269314, 5, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos_temporal`
+-- Table structure for table `alumnos_temporal`
 --
 
 CREATE TABLE `alumnos_temporal` (
@@ -98,7 +103,7 @@ CREATE TABLE `alumnos_temporal` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asesorias_finalizadas`
+-- Table structure for table `asesorias_finalizadas`
 --
 
 CREATE TABLE `asesorias_finalizadas` (
@@ -114,7 +119,7 @@ CREATE TABLE `asesorias_finalizadas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carreras`
+-- Table structure for table `carreras`
 --
 
 CREATE TABLE `carreras` (
@@ -125,16 +130,17 @@ CREATE TABLE `carreras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `carreras`
+-- Dumping data for table `carreras`
 --
 
 INSERT INTO `carreras` (`carrera_id`, `carrera_nombre`, `centro_id`, `carrera_semestreMax`) VALUES
-(1, 'Ing. Sistemas Computacionales', 1, 9);
+(1, 'Ing. Sistemas Computacionales', 1, 9),
+(2, 'Lic. Matemáticas Aplicadas', 1, 10);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `centros`
+-- Table structure for table `centros`
 --
 
 CREATE TABLE `centros` (
@@ -143,7 +149,7 @@ CREATE TABLE `centros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `centros`
+-- Dumping data for table `centros`
 --
 
 INSERT INTO `centros` (`centro_id`, `centro_nombre`) VALUES
@@ -152,7 +158,7 @@ INSERT INTO `centros` (`centro_id`, `centro_nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `materias`
+-- Table structure for table `materias`
 --
 
 CREATE TABLE `materias` (
@@ -163,7 +169,7 @@ CREATE TABLE `materias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `materias`
+-- Dumping data for table `materias`
 --
 
 INSERT INTO `materias` (`materia_id`, `materia_nombre`, `materia_departamento`, `centro_id`) VALUES
@@ -174,7 +180,7 @@ INSERT INTO `materias` (`materia_id`, `materia_nombre`, `materia_departamento`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `materias_carreras`
+-- Table structure for table `materias_carreras`
 --
 
 CREATE TABLE `materias_carreras` (
@@ -184,18 +190,18 @@ CREATE TABLE `materias_carreras` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `materias_carreras`
+-- Dumping data for table `materias_carreras`
 --
 
 INSERT INTO `materias_carreras` (`materia_id`, `carrera_id`, `semestre`) VALUES
 (1, 1, 2),
-(2, 1, 3),
+(2, 1, 2),
 (3, 1, 5);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `materias_tutores`
+-- Table structure for table `materias_tutores`
 --
 
 CREATE TABLE `materias_tutores` (
@@ -205,7 +211,7 @@ CREATE TABLE `materias_tutores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `materias_tutores`
+-- Dumping data for table `materias_tutores`
 --
 
 INSERT INTO `materias_tutores` (`tutor_id`, `materia_id`, `promedio_materia`) VALUES
@@ -216,7 +222,7 @@ INSERT INTO `materias_tutores` (`tutor_id`, `materia_id`, `promedio_materia`) VA
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `solicitudes`
+-- Table structure for table `solicitudes`
 --
 
 CREATE TABLE `solicitudes` (
@@ -234,18 +240,19 @@ CREATE TABLE `solicitudes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `solicitudes`
+-- Dumping data for table `solicitudes`
 --
 
 INSERT INTO `solicitudes` (`solicitud_id`, `solicitud_fecha`, `solicitud_urgencia`, `materia_id`, `solicitud_tema`, `solicitud_descripcion`, `tutor_id`, `solicitud_fecha_progrmacion`, `solicitud_lugar`, `solicitud_modalidad`, `solicitud_idAsesoria`) VALUES
 (2, '2021-09-24 21:24:05', 1, 1, 'CICLOS FOR', 'No entiendo el tema', 1, NULL, NULL, NULL, NULL),
-(3, '2021-09-29 21:42:22', 1, 1, 'Matrices', 'No entiendo', 1, '2021-09-29 21:42:22', 'UAA', 1, '12345'),
-(4, '2021-09-30 21:30:20', 1, 2, 'Árboles', 'Preorden, postorden', NULL, NULL, NULL, NULL, NULL);
+(3, '2021-09-29 21:42:22', 1, 2, 'Matrices', 'No entiendo', 2, NULL, 'UAA', 1, '12345'),
+(4, '2021-09-30 21:30:20', 1, 2, 'Árboles', 'Preorden, postorden', 2, '2021-10-28 15:08:40', NULL, NULL, NULL),
+(5, '2021-10-20 04:50:27', 1, 2, 'xd', 'xd', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tutores`
+-- Table structure for table `tutores`
 --
 
 CREATE TABLE `tutores` (
@@ -256,7 +263,7 @@ CREATE TABLE `tutores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `tutores`
+-- Dumping data for table `tutores`
 --
 
 INSERT INTO `tutores` (`tutor_id`, `alumno_id`, `tutor_promedio`, `tutor_programa`) VALUES
@@ -264,11 +271,11 @@ INSERT INTO `tutores` (`tutor_id`, `alumno_id`, `tutor_promedio`, `tutor_program
 (2, 226570, 9.5, 2);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `alumnos`
+-- Indexes for table `alumnos`
 --
 ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`alumno_id`),
@@ -276,28 +283,28 @@ ALTER TABLE `alumnos`
   ADD KEY `carrera_id` (`carrera_id`);
 
 --
--- Indices de la tabla `alumnos_asesoriasf`
+-- Indexes for table `alumnos_asesoriasf`
 --
 ALTER TABLE `alumnos_asesoriasf`
   ADD KEY `alumno_id` (`alumno_id`),
   ADD KEY `asesoria_id` (`asesoria_id`);
 
 --
--- Indices de la tabla `alumnos_solicitudes`
+-- Indexes for table `alumnos_solicitudes`
 --
 ALTER TABLE `alumnos_solicitudes`
   ADD KEY `alumno_id` (`alumno_id`),
   ADD KEY `solicitud_id` (`solicitud_id`);
 
 --
--- Indices de la tabla `alumnos_temporal`
+-- Indexes for table `alumnos_temporal`
 --
 ALTER TABLE `alumnos_temporal`
   ADD PRIMARY KEY (`alumnotemp_id`),
   ADD KEY `solicitud_id` (`solicitud_id`);
 
 --
--- Indices de la tabla `asesorias_finalizadas`
+-- Indexes for table `asesorias_finalizadas`
 --
 ALTER TABLE `asesorias_finalizadas`
   ADD PRIMARY KEY (`asesoria_id`),
@@ -306,41 +313,41 @@ ALTER TABLE `asesorias_finalizadas`
   ADD KEY `materia_id` (`materia_id`);
 
 --
--- Indices de la tabla `carreras`
+-- Indexes for table `carreras`
 --
 ALTER TABLE `carreras`
   ADD PRIMARY KEY (`carrera_id`),
   ADD KEY `centro_id` (`centro_id`);
 
 --
--- Indices de la tabla `centros`
+-- Indexes for table `centros`
 --
 ALTER TABLE `centros`
   ADD PRIMARY KEY (`centro_id`);
 
 --
--- Indices de la tabla `materias`
+-- Indexes for table `materias`
 --
 ALTER TABLE `materias`
   ADD PRIMARY KEY (`materia_id`),
   ADD KEY `centro_id` (`centro_id`);
 
 --
--- Indices de la tabla `materias_carreras`
+-- Indexes for table `materias_carreras`
 --
 ALTER TABLE `materias_carreras`
   ADD KEY `carrera_id` (`carrera_id`),
   ADD KEY `materia_id` (`materia_id`);
 
 --
--- Indices de la tabla `materias_tutores`
+-- Indexes for table `materias_tutores`
 --
 ALTER TABLE `materias_tutores`
   ADD KEY `tutor_id` (`tutor_id`),
   ADD KEY `materia_id` (`materia_id`);
 
 --
--- Indices de la tabla `solicitudes`
+-- Indexes for table `solicitudes`
 --
 ALTER TABLE `solicitudes`
   ADD PRIMARY KEY (`solicitud_id`),
@@ -348,45 +355,45 @@ ALTER TABLE `solicitudes`
   ADD KEY `tutor_id` (`tutor_id`);
 
 --
--- Indices de la tabla `tutores`
+-- Indexes for table `tutores`
 --
 ALTER TABLE `tutores`
   ADD PRIMARY KEY (`tutor_id`),
   ADD KEY `alumno_id` (`alumno_id`);
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `alumnos`
+-- Constraints for table `alumnos`
 --
 ALTER TABLE `alumnos`
   ADD CONSTRAINT `alumnos_ibfk_1` FOREIGN KEY (`centro_id`) REFERENCES `centros` (`centro_id`),
   ADD CONSTRAINT `alumnos_ibfk_2` FOREIGN KEY (`carrera_id`) REFERENCES `carreras` (`carrera_id`);
 
 --
--- Filtros para la tabla `alumnos_asesoriasf`
+-- Constraints for table `alumnos_asesoriasf`
 --
 ALTER TABLE `alumnos_asesoriasf`
   ADD CONSTRAINT `alumnos_asesoriasf_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`),
   ADD CONSTRAINT `alumnos_asesoriasf_ibfk_2` FOREIGN KEY (`asesoria_id`) REFERENCES `asesorias_finalizadas` (`asesoria_id`);
 
 --
--- Filtros para la tabla `alumnos_solicitudes`
+-- Constraints for table `alumnos_solicitudes`
 --
 ALTER TABLE `alumnos_solicitudes`
   ADD CONSTRAINT `alumnos_solicitudes_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`),
   ADD CONSTRAINT `alumnos_solicitudes_ibfk_2` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitudes` (`solicitud_id`);
 
 --
--- Filtros para la tabla `alumnos_temporal`
+-- Constraints for table `alumnos_temporal`
 --
 ALTER TABLE `alumnos_temporal`
   ADD CONSTRAINT `alumnos_temporal_ibfk_1` FOREIGN KEY (`solicitud_id`) REFERENCES `solicitudes` (`solicitud_id`);
 
 --
--- Filtros para la tabla `asesorias_finalizadas`
+-- Constraints for table `asesorias_finalizadas`
 --
 ALTER TABLE `asesorias_finalizadas`
   ADD CONSTRAINT `asesorias_finalizadas_ibfk_1` FOREIGN KEY (`tutor_id`) REFERENCES `tutores` (`tutor_id`),
@@ -394,26 +401,26 @@ ALTER TABLE `asesorias_finalizadas`
   ADD CONSTRAINT `asesorias_finalizadas_ibfk_3` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`);
 
 --
--- Filtros para la tabla `carreras`
+-- Constraints for table `carreras`
 --
 ALTER TABLE `carreras`
   ADD CONSTRAINT `carreras_ibfk_1` FOREIGN KEY (`centro_id`) REFERENCES `centros` (`centro_id`);
 
 --
--- Filtros para la tabla `materias`
+-- Constraints for table `materias`
 --
 ALTER TABLE `materias`
   ADD CONSTRAINT `materias_ibfk_1` FOREIGN KEY (`centro_id`) REFERENCES `centros` (`centro_id`);
 
 --
--- Filtros para la tabla `materias_carreras`
+-- Constraints for table `materias_carreras`
 --
 ALTER TABLE `materias_carreras`
   ADD CONSTRAINT `materias_carreras_ibfk_1` FOREIGN KEY (`carrera_id`) REFERENCES `carreras` (`carrera_id`),
   ADD CONSTRAINT `materias_carreras_ibfk_2` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`);
 
 --
--- Filtros para la tabla `materias_tutores`
+-- Constraints for table `materias_tutores`
 --
 ALTER TABLE `materias_tutores`
   ADD CONSTRAINT `materias_tutores_ibfk_1` FOREIGN KEY (`tutor_id`) REFERENCES `tutores` (`tutor_id`),
@@ -421,14 +428,14 @@ ALTER TABLE `materias_tutores`
   ADD CONSTRAINT `materias_tutores_ibfk_3` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`);
 
 --
--- Filtros para la tabla `solicitudes`
+-- Constraints for table `solicitudes`
 --
 ALTER TABLE `solicitudes`
   ADD CONSTRAINT `solicitudes_ibfk_1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`),
   ADD CONSTRAINT `solicitudes_ibfk_2` FOREIGN KEY (`tutor_id`) REFERENCES `tutores` (`tutor_id`);
 
 --
--- Filtros para la tabla `tutores`
+-- Constraints for table `tutores`
 --
 ALTER TABLE `tutores`
   ADD CONSTRAINT `tutores_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`alumno_id`);
