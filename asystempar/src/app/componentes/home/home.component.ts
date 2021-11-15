@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public id:Number;
-  public contrasena:String;
+  public password:String;
   constructor() { 
     this.id = 0;
-    this.contrasena="";
+    this.password="";
   }
 
   ngOnInit(): void {
