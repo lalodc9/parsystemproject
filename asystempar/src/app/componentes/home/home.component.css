@@ -1,0 +1,51 @@
+#logogallo{
+    display: block;
+    margin: auto;
+    height: 30%;
+    width: 20%;
+}
+
+.formulariosregistro{
+    font-family: consolas;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#textID{
+    padding-left: 105px;
+}
+
+input[type=text],input[type=password]{
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 70%;
+    font-family: consolas;
+}
+
+input[type=submit]{
+    position: relative;
+    bottom: 35px;
+    font-size: 70%;
+    font-family: consolas;
+    background-color: #465163;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+
+#register{
+    color: #07215E;
+    font-size: 70%;
+    position: relative;
+    padding-left: 275px;
+    bottom: 25px;
+}
+p{
+    text-align: center;
+    font-size: 100%;
+    position: relative;
+    bottom: 30px;
+}

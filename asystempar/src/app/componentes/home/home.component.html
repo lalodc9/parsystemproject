@@ -1,0 +1,16 @@
+<app-header></app-header>
+<img src="./assets/img/logogallo.png" id="logogallo">
+
+<form class="formulariosregistro">
+    <label for="id" id="textId">ID</label>
+    <input type="text" id="id" name="id" pattern="al+[0-9]{6}" required placeholder="Ingresa tu ID" [(ngModel)]="id">
+    <br><br>
+
+    <label for="password" id="textPasswoord">CONTRASEÑA</label> 
+    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" [(ngModel)]="contrasena"><br><br>
+
+    <a href="http://www.pixelania.com" id="register">REGÍSTRATE</a><br><br>
+    <input type="submit" value="INGRESAR">
+</form>
+<p>Nota: El ID es el proporcionado por la UNIVERSIDAD</p>
+<p>{{id}}</p>
