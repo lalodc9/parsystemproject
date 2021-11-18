@@ -1,1 +1,32 @@
-<p>general-register works!</p>
+<app-header></app-header>
+
+<div>
+    <h1>REGISTRO ALUMNO</h1>
+</div>
+<div>
+    <hr>
+    INFORMACIÓN GENERAL
+    <hr>
+</div>
+
+<form class="informacionregistro">
+    <label for="name" id="textNombre">NOMBRE COMPLETO</label>
+    <input type="text" id="name"[(ngModel)]="alumno.nombre"><br>
+    <label for="id" id="textID">ID</label>
+    <input type="text" id="id" [(ngModel)]="alumno.id" pattern="[0-9]{6}" required><br>
+    <label for="faculty" id="textFaculty">CENTRO ACADÉMICO</label>
+    <input type="text" id="center" [(ngModel)]="alumno.centro"><br>
+    <label for="course" id="textCourse">CARRERA</label>
+    <input type="text" id="course" [(ngModel)]="alumno.carrera"><br>
+    <label for="semester" id="textSemester">SEMESTRE</label>
+    <input type="number" id="semester" [(ngModel)]="alumno.semestre"><br>
+    <label for="group" id="textGroup">GRUPO</label>
+    <input type="text" id="group" [(ngModel)]="alumno.grupo"><br>
+    <label for="phonenumber" id="textTel">TELÉFONO</label>
+    <input type="tel" id="phonenumber" [(ngModel)]="alumno.telefono"><br>
+    <label for="altmail" id="textMail">CORREO ALTERNATIVO</label>
+    <input type="text" id="altmail" [(ngModel)]="alumno.correo"><br>
+    <label for="photo" id="textPhoto">IMAGEN</label><br>
+    <!-- SELECCIONAR ARCHIVO -->
+    <input type="button" value="REGISTRARSE" (click)="altaAlumno()">
+</form>
